@@ -8,6 +8,7 @@ class LobbyApplicationTests {
 
 	@Test
 	void contextLoads() {
+		LobbyApplication.main(new String[]{});
 	}
 
 }
