@@ -17,24 +17,23 @@ import java.util.List;
 public class LobbyController {
     @Autowired
     private LobbyService lobbyService;
-    @PostMapping("/createLobby/{lobbyName}")
-    public ResponseEntity<?> createLobby(@PathVariable String lobbyName) {
+    @PostMapping
+    public ResponseEntity<?> createLobby(@RequestBody LobbyDTO lobbyDTO) {
         try {
-            return new ResponseEntity<LobbyDTO>(lobbyService.createLobby(lobbyName), HttpStatus.CREATED);
+            return new ResponseEntity<LobbyDTO>(lobbyService.createLobby(lobbyDTO), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
     @GetMapping("/{lobbyId}")
-    public ResponseEntity<?> getLobby(@PathVariable Long lobbyId) {
+    public ResponseEntity<?> getLobby(@PathVariable String lobbyId) {
         try {
-            LobbyDTO lobbyDTO = lobbyService.getLobby(lobbyId);
-            return new ResponseEntity<LobbyDTO>(lobbyDTO, HttpStatus.OK);
+            return new ResponseEntity<LobbyDTO>(lobbyService.getLobby(lobbyId), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<?> getAllLobbies() {
         try {
             List<LobbyDTO> allLobbies = lobbyService.getAllLobbies();
@@ -44,9 +43,9 @@ public class LobbyController {
         }
     }
     @DeleteMapping("/{gameId}")
-    public ResponseEntity<?> lobbyGame(@PathVariable Long gameId) {
+    public ResponseEntity<?> removeGame(@PathVariable String gameId) {
         try {
-            lobbyService.lobbyGame(gameId);
+            lobbyService.removeGame(gameId);
             return new ResponseEntity<String>("Juego eliminado correctamente", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
