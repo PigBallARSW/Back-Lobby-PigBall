@@ -51,8 +51,8 @@ public class LobbyDTO {
         this.creationTime = gameDTO.getCreationTime();
         this.borderX = gameDTO.getBorderX();
         this.borderY = gameDTO.getBorderY();
-//        Collection<PlayerDTO> playersDTO = PlayerDTO.toDTO(lobby.getPlayers().values());
-//        this.players = (List<PlayerDTO>) playersDTO;
+        Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
+        this.players = (List<PlayerDTO>) playersDTO;
     }
 
     public int getMaxPlayers() {
