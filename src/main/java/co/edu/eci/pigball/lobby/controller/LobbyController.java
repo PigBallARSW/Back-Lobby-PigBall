@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/lobby")
-
 public class LobbyController {
     @Autowired
     private LobbyService lobbyService;
