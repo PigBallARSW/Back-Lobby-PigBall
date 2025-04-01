@@ -25,7 +25,7 @@ import java.util.Map;
 public class LobbyService {
     @Autowired
     private LobbyRepository lobbyRepository;
-    
+
     @Value("${GAME_SERVICE_URL}")
     private String gameServiceUrl;
     private final RestTemplate restTemplate;
@@ -70,6 +70,7 @@ public class LobbyService {
         String url = gameServiceUrl + "/getAllGames";
 
         try {
+            System.out.println("URL: " + url);
             // Realiza la solicitud GET al servicio
             ResponseEntity<List<GameDTO>> response = restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<GameDTO>>() {});
 
