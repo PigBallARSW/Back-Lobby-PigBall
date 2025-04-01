@@ -9,7 +9,7 @@ jobs:
   deploy:
     uses: PigBallARSW/central-pipelines/.github/workflows/deploy.yml@V0.2.11
     with:
-      PROJECT_NAME: "Lobby-Game-PigBall"       # Nombre de la carpeta/proyecto en la instancia EC2
+      PROJECT_NAME: "Back-Lobby-PigBall"       # Nombre de la carpeta/proyecto en la instancia EC2
       IMAGE_NAME: "piglobby"                  # Nombre de la imagen Docker
       CONTAINER_NAME: "piglobby"              # Nombre del contenedor Docker
       PORT: "8081"                        # Puerto en el que se expondrá el contenedor
