@@ -5,6 +5,7 @@ import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
 import co.edu.eci.pigball.lobby.model.Lobby;
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import co.edu.eci.pigball.lobby.repository.LobbyRepository;
@@ -24,7 +25,9 @@ import java.util.Map;
 public class LobbyService {
     @Autowired
     private LobbyRepository lobbyRepository;
-    private final String gameServiceUrl = "https://localhost:8080";
+    
+    @Value("${GAME_SERVICE_URL}")
+    private String gameServiceUrl;
     private final RestTemplate restTemplate;
 
     @Autowired
