@@ -1,0 +1,22 @@
+name: Deploy Release
+
+on:
+  push:
+    branches:
+      - dev 
+
+jobs:
+  deploy:
+    uses: PigBallARSW/central-pipelines/.github/workflows/deploy.yml@V0.2.11
+    with:
+      PROJECT_NAME: "Lobby-Game-PigBall"       # Nombre de la carpeta/proyecto en la instancia EC2
+      IMAGE_NAME: "piglobby"                  # Nombre de la imagen Docker
+      CONTAINER_NAME: "piglobby"              # Nombre del contenedor Docker
+      PORT: "8081"                        # Puerto en el que se expondrá el contenedor
+      REPO_URL: "https://github.com/PigBallARSW/Back-Lobby-PigBall.git"  # URL del repositorio a desplegar
+      BRANCH: "dev"                      
+    secrets:
+      EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+      EC2_USER: ${{ secrets.EC2_USER }}
+      AWS_SECRET_ARN: ${{ secrets.AWS_SECRET_ARN }}
