@@ -1,9 +1,11 @@
 package co.edu.eci.pigball.lobby.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.concurrent.atomic.AtomicInteger;
 @Getter
+@Setter
 public class Player {
     private String name;
     private String sessionId;
