@@ -2,22 +2,23 @@ package co.edu.eci.pigball.lobby.model;
 
 import lombok.Getter;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+
 @Getter
 public class Player {
     private String name;
     private String sessionId;
     private Integer team;
-    private AtomicInteger x;
-    private AtomicInteger y;
+    private AtomicReference<Double> x;
+    private AtomicReference<Double> y;
     private Lobby lobby;
 
     private static final int RADIUS = 20;
-    public int getX() {
+    public double getX() {
         return x.get();
     }
 
-    public int getY() {
+    public double getY() {
         return y.get();
     }
 }

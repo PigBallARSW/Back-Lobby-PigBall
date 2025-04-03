@@ -17,8 +17,8 @@ public class PlayerDTO {
     private String name;
     private String sessionId;
     private Integer team;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     private String gameId;
 
 
