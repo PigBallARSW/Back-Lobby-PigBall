@@ -4,6 +4,8 @@ import co.edu.eci.pigball.lobby.model.Lobby;
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
 import co.edu.eci.pigball.lobby.model.Player;
 import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
+import co.edu.eci.pigball.lobby.model.DTO.PlayerDTO;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -64,10 +66,10 @@ public class TestLobby {
 
     @Test
     void testPlayerManagement() {
-        Player mockPlayer = mock(Player.class);
-        when(mockPlayer.getSessionId()).thenReturn("player-1");
+        PlayerDTO mockPlayerDTO = mock(PlayerDTO.class);
+        when(mockPlayerDTO.getSessionId()).thenReturn("player-1");
 
-        lobby.getPlayers().put("player-1", mockPlayer);
+        lobby.getPlayers().put("player-1", mockPlayerDTO);
         assertEquals(1, lobby.getPlayers().size());
         assertTrue(lobby.getPlayers().containsKey("player-1"));
     }

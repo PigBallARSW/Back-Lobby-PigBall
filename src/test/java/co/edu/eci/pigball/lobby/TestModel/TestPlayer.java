@@ -42,10 +42,10 @@ class TestPlayer {
 
     @Test
     void testSetXAndY() {
-        player.setX(new java.util.concurrent.atomic.AtomicInteger(100));
-        player.setY(new java.util.concurrent.atomic.AtomicInteger(200));
-
-        assertEquals(100, player.getX());
-        assertEquals(200, player.getY());
+        player.setX(new java.util.concurrent.atomic.AtomicReference<>(100.0));
+        player.setY(new java.util.concurrent.atomic.AtomicReference<>(200.0));
+    
+        assertEquals(100.0, player.getX());
+        assertEquals(200.0, player.getY());
     }
 }

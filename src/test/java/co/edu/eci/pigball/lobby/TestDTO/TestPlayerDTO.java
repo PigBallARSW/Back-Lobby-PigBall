@@ -22,8 +22,8 @@ public class TestPlayerDTO {
         when(mockPlayer.getName()).thenReturn("John");
         when(mockPlayer.getSessionId()).thenReturn("session-1");
         when(mockPlayer.getTeam()).thenReturn(1);
-        when(mockPlayer.getX()).thenReturn(100);
-        when(mockPlayer.getY()).thenReturn(200);
+        when(mockPlayer.getX()).thenReturn(100.0);
+        when(mockPlayer.getY()).thenReturn(200.0);
         when(mockPlayer.getLobby()).thenReturn(mockLobby);
 
         PlayerDTO playerDTO = PlayerDTO.toDTO(mockPlayer);
@@ -34,8 +34,8 @@ public class TestPlayerDTO {
         assertEquals(100, playerDTO.getX());
         assertEquals(200, playerDTO.getY());
         assertEquals("1234", playerDTO.getGameId());
-        assertEquals(mockPlayer.getX(), 100);
-        assertEquals(mockPlayer.getY(), 200);
+        assertEquals(mockPlayer.getX(), 100.0);
+        assertEquals(mockPlayer.getY(), 200.0);
     }
 
     @Test
@@ -47,16 +47,16 @@ public class TestPlayerDTO {
         when(mockPlayer1.getName()).thenReturn("Alice");
         when(mockPlayer1.getSessionId()).thenReturn("session-2");
         when(mockPlayer1.getTeam()).thenReturn(2);
-        when(mockPlayer1.getX()).thenReturn(50);
-        when(mockPlayer1.getY()).thenReturn(75);
+        when(mockPlayer1.getX()).thenReturn(50.0);
+        when(mockPlayer1.getY()).thenReturn(75.0);
         when(mockPlayer1.getLobby()).thenReturn(mockLobby);
 
         Player mockPlayer2 = mock(Player.class);
         when(mockPlayer2.getName()).thenReturn("Bob");
         when(mockPlayer2.getSessionId()).thenReturn("session-3");
         when(mockPlayer2.getTeam()).thenReturn(1);
-        when(mockPlayer2.getX()).thenReturn(150);
-        when(mockPlayer2.getY()).thenReturn(250);
+        when(mockPlayer2.getX()).thenReturn(150.0);
+        when(mockPlayer2.getY()).thenReturn(250.0);
         when(mockPlayer2.getLobby()).thenReturn(mockLobby);
 
         Collection<PlayerDTO> playerDTOs = PlayerDTO.toDTO(List.of(mockPlayer1, mockPlayer2));
