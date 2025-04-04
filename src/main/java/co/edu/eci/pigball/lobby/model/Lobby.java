@@ -33,7 +33,7 @@ public class Lobby {
     private int borderX;
     private int borderY;
     private Pair<Team, Team> teams;
-    private ConcurrentHashMap<String, Player> players;
+    private ConcurrentHashMap<String, PlayerDTO> players;
 
     private static final int velocity = 5;
     private static final double FRAME_RATE = 60;
