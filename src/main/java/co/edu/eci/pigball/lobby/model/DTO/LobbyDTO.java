@@ -38,9 +38,11 @@ public class LobbyDTO {
         this.creationTime = lobby.getCreationTime();
         this.borderX = lobby.getBorderX();
         this.borderY = lobby.getBorderY();
-//        Collection<PlayerDTO> playersDTO = PlayerDTO.toDTO(lobby.getPlayers().values());
-//        this.players = (List<PlayerDTO>) playersDTO;
+        // Collection<PlayerDTO> playersDTO =
+        // PlayerDTO.toDTO(lobby.getPlayers().values());
+        // this.players = (List<PlayerDTO>) playersDTO;
     }
+
     public LobbyDTO(GameDTO gameDTO) {
         this.id = gameDTO.getId();
         this.lobbyName = gameDTO.getGameName();
@@ -56,12 +58,14 @@ public class LobbyDTO {
     }
 
     public int getMaxPlayers() {
-        if(maxPlayers==null) return 4;
+        if (maxPlayers == null)
+            return 4;
         return maxPlayers;
     }
 
     public boolean isPrivateGame() {
-        if(privateLobby==null) return false;
+        if (privateLobby == null)
+            return false;
         return privateLobby;
     }
 

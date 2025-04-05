@@ -24,7 +24,8 @@ public class LobbyService {
     private final RestTemplate restTemplate;
 
     @Autowired
-    public LobbyService(RestTemplate restTemplate) {
+    public LobbyService(RestTemplate restTemplate, LobbyRepository lobbyRepository) {
+        this.lobbyRepository = lobbyRepository;
         this.restTemplate = restTemplate;
     }
 
