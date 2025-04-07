@@ -1,8 +1,8 @@
 package co.edu.eci.pigball.lobby.TestService;
 
-import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
-import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
 import co.edu.eci.pigball.lobby.model.Lobby;
+import co.edu.eci.pigball.lobby.model.dto.GameDTO;
+import co.edu.eci.pigball.lobby.model.dto.LobbyDTO;
 import co.edu.eci.pigball.lobby.repository.LobbyRepository;
 import co.edu.eci.pigball.lobby.service.LobbyService;
 
@@ -45,7 +45,6 @@ class TestLobbyService {
     void testCreateLobby() {
         LobbyDTO lobbyDTO = new LobbyDTO();
         GameDTO gameDTO = new GameDTO(lobbyDTO);
-        Lobby lobby = new Lobby(gameDTO);
 
         when(restTemplate.exchange(anyString(), eq(HttpMethod.POST), any(HttpEntity.class), eq(GameDTO.class)))
                 .thenReturn(new ResponseEntity<>(gameDTO, HttpStatus.OK));

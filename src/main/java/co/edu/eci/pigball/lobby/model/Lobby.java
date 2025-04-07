@@ -1,7 +1,5 @@
 package co.edu.eci.pigball.lobby.model;
 
-import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
-import co.edu.eci.pigball.lobby.model.DTO.PlayerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +7,9 @@ import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import co.edu.eci.pigball.lobby.java.Pair;
+import co.edu.eci.pigball.lobby.model.dto.GameDTO;
+import co.edu.eci.pigball.lobby.model.dto.PlayerDTO;
+
 import java.time.Instant;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;

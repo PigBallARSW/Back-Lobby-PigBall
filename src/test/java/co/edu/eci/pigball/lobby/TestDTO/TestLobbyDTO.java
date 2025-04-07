@@ -3,7 +3,6 @@ package co.edu.eci.pigball.lobby.TestDTO;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,9 +10,9 @@ import org.junit.jupiter.api.Test;
 
 import co.edu.eci.pigball.lobby.model.Lobby;
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
-import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
-import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
-import co.edu.eci.pigball.lobby.model.DTO.PlayerDTO;
+import co.edu.eci.pigball.lobby.model.dto.GameDTO;
+import co.edu.eci.pigball.lobby.model.dto.LobbyDTO;
+import co.edu.eci.pigball.lobby.model.dto.PlayerDTO;
 
 public class TestLobbyDTO {
 

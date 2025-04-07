@@ -1,8 +1,8 @@
 package co.edu.eci.pigball.lobby.TestController;
 
 import co.edu.eci.pigball.lobby.controller.LobbyController;
-import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
+import co.edu.eci.pigball.lobby.model.dto.LobbyDTO;
 import co.edu.eci.pigball.lobby.service.LobbyService;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.junit.jupiter.api.BeforeEach;

@@ -2,9 +2,8 @@ package co.edu.eci.pigball.lobby.TestModel;
 
 import co.edu.eci.pigball.lobby.model.Lobby;
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
-import co.edu.eci.pigball.lobby.model.Player;
-import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
-import co.edu.eci.pigball.lobby.model.DTO.PlayerDTO;
+import co.edu.eci.pigball.lobby.model.dto.GameDTO;
+import co.edu.eci.pigball.lobby.model.dto.PlayerDTO;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

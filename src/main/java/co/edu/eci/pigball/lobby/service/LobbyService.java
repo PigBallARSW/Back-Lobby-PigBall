@@ -1,8 +1,8 @@
 package co.edu.eci.pigball.lobby.service;
 
-import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
-import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
 import co.edu.eci.pigball.lobby.model.Lobby;
+import co.edu.eci.pigball.lobby.model.dto.GameDTO;
+import co.edu.eci.pigball.lobby.model.dto.LobbyDTO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

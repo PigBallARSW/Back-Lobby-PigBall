@@ -1,4 +1,4 @@
-package co.edu.eci.pigball.lobby.model.DTO;
+package co.edu.eci.pigball.lobby.model.dto;
 
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
 import lombok.AllArgsConstructor;

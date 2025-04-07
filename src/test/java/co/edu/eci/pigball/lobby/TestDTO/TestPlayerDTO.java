@@ -1,8 +1,9 @@
 package co.edu.eci.pigball.lobby.TestDTO;
 
-import co.edu.eci.pigball.lobby.model.DTO.PlayerDTO;
 import co.edu.eci.pigball.lobby.model.Lobby;
 import co.edu.eci.pigball.lobby.model.Player;
+import co.edu.eci.pigball.lobby.model.dto.PlayerDTO;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

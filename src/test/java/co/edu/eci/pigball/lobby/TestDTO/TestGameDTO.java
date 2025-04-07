@@ -10,8 +10,8 @@ import java.util.List;
 import org.junit.jupiter.api.Test; // Usa JUnit 5
 
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
-import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
-import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
+import co.edu.eci.pigball.lobby.model.dto.GameDTO;
+import co.edu.eci.pigball.lobby.model.dto.LobbyDTO;
 
 public class TestGameDTO {
 
