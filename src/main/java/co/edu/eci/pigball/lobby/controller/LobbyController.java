@@ -20,37 +20,37 @@ public class LobbyController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createLobby(@RequestBody LobbyDTO lobbyDTO) {
+    public ResponseEntity<Object> createLobby(@RequestBody LobbyDTO lobbyDTO) {
         try {
-            return new ResponseEntity<LobbyDTO>(lobbyService.createLobby(lobbyDTO), HttpStatus.CREATED);
+            return new ResponseEntity<>(lobbyService.createLobby(lobbyDTO), HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
     @GetMapping("/{lobbyId}")
-    public ResponseEntity<?> getLobby(@PathVariable String lobbyId) {
+    public ResponseEntity<Object> getLobby(@PathVariable String lobbyId) {
         try {
-            return new ResponseEntity<LobbyDTO>(lobbyService.getLobby(lobbyId), HttpStatus.OK);
+            return new ResponseEntity<>(lobbyService.getLobby(lobbyId), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
     @GetMapping
-    public ResponseEntity<?> getAllLobbies() {
+    public ResponseEntity<Object> getAllLobbies() {
         try {
             List<LobbyDTO> allLobbies = lobbyService.getAllLobbies();
-            return new ResponseEntity<List<LobbyDTO>>(allLobbies, HttpStatus.OK);
+            return new ResponseEntity<>(allLobbies, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
     @DeleteMapping("/{gameId}")
-    public ResponseEntity<?> removeGame(@PathVariable String gameId) {
+    public ResponseEntity<Object> removeGame(@PathVariable String gameId) {
         try {
             lobbyService.removeGame(gameId);
-            return new ResponseEntity<String>("Juego eliminado correctamente", HttpStatus.OK);
+            return new ResponseEntity<>("Juego eliminado correctamente", HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 
