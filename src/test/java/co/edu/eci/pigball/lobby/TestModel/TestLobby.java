@@ -13,7 +13,7 @@ import java.time.Instant;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class TestLobby {
+class TestLobby {
 
     private Lobby lobby;
 

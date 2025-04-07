@@ -15,3 +15,4 @@ public enum LobbyStatus {
         return name().replace("_", " ").toLowerCase();
     }
 }
+

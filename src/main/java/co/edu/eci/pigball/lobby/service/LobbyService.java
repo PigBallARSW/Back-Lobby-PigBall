@@ -52,7 +52,8 @@ public class LobbyService {
     public LobbyDTO getLobby(String lobbyId) {
         String url = gameServiceUrl + "/getGame/" + lobbyId;
         try {
-            ResponseEntity<GameDTO> response = restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY, GameDTO.class);
+            ResponseEntity<GameDTO> response = restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY,
+                    GameDTO.class);
             GameDTO responseGameDTO = response.getBody();
             Lobby lobby = new Lobby(responseGameDTO);
             return new LobbyDTO(lobby);
@@ -68,7 +69,9 @@ public class LobbyService {
         try {
             System.out.println("URL: " + url);
             // Realiza la solicitud GET al servicio
-            ResponseEntity<List<GameDTO>> response = restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<GameDTO>>() {});
+            ResponseEntity<List<GameDTO>> response = restTemplate.exchange(url, HttpMethod.GET, HttpEntity.EMPTY,
+                    new ParameterizedTypeReference<List<GameDTO>>() {
+                    });
 
             // Procesar la respuesta y convertirla en LobbyDTO
             List<GameDTO> games = response.getBody();
@@ -76,7 +79,8 @@ public class LobbyService {
 
             for (GameDTO gameDTO : games) {
                 LobbyDTO lobbyDTO = new LobbyDTO(gameDTO);
-                if(!lobbyDTO.isPrivateGame())lobbies.add(lobbyDTO);
+                if (!lobbyDTO.isPrivateGame())
+                    lobbies.add(lobbyDTO);
             }
             return lobbies;
         } catch (Exception e) {
@@ -84,7 +88,6 @@ public class LobbyService {
             throw new RuntimeException("Error al obtener todos los juegos", e);
         }
     }
-
 
     public void removeGame(String gameId) {
         String url = gameServiceUrl + "/removeGame/" + gameId;
@@ -98,4 +101,3 @@ public class LobbyService {
     }
 
 }
-

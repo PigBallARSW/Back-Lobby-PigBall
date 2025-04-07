@@ -12,7 +12,7 @@ import java.util.Collection;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class TestPlayerDTO {
+class TestPlayerDTO {
 
     @Test
     void testToDTO() {

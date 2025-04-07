@@ -44,7 +44,7 @@ class TestPlayer {
     void testSetXAndY() {
         player.setX(new java.util.concurrent.atomic.AtomicReference<>(100.0));
         player.setY(new java.util.concurrent.atomic.AtomicReference<>(200.0));
-    
+
         assertEquals(100.0, player.getX());
         assertEquals(200.0, player.getY());
     }

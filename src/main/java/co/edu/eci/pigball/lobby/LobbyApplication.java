@@ -25,7 +25,7 @@ public class LobbyApplication {
 		} else {
 			System.setProperty("server.port", "8081");
 		}
-		
+
 		SpringApplication.run(LobbyApplication.class, args);
 	}
 }

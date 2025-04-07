@@ -46,7 +46,8 @@ public class Lobby {
         this.teams = new Pair<>(new Team(), new Team());
         this.players = new ConcurrentHashMap<>();
     }
-    public Lobby(GameDTO gameDTO){
+
+    public Lobby(GameDTO gameDTO) {
         this.lobbyId = gameDTO.getId();
         this.lobbyName = gameDTO.getGameName();
         this.creatorName = gameDTO.getCreatorName();
@@ -56,8 +57,8 @@ public class Lobby {
         this.creationTime = gameDTO.getCreationTime();
         this.borderX = gameDTO.getBorderX();
         this.borderY = gameDTO.getBorderY();
-        //this.teams = gameDTO.getTeams();
-        //Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
-        //this.players = (List<PlayerDTO>) playersDTO;
+        // this.teams = gameDTO.getTeams();
+        // Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
+        // this.players = (List<PlayerDTO>) playersDTO;
     }
 }

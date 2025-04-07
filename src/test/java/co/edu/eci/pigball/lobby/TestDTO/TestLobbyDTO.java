@@ -14,7 +14,7 @@ import co.edu.eci.pigball.lobby.model.dto.GameDTO;
 import co.edu.eci.pigball.lobby.model.dto.LobbyDTO;
 import co.edu.eci.pigball.lobby.model.dto.PlayerDTO;
 
-public class TestLobbyDTO {
+class TestLobbyDTO {
 
     @Test
     void testLobbyDTOConstructorWithLobby() {

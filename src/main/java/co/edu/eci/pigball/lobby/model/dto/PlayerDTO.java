@@ -21,7 +21,6 @@ public class PlayerDTO {
     private double y;
     private String gameId;
 
-
     public static PlayerDTO toDTO(Player player) {
         PlayerDTO playerDTO = new PlayerDTO();
         playerDTO.setName(player.getName());
@@ -37,4 +36,3 @@ public class PlayerDTO {
         return players.stream().map(PlayerDTO::toDTO).toList();
     }
 }
-

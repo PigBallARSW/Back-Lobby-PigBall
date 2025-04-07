@@ -87,7 +87,7 @@ class TestLobbyService {
                 anyString(),
                 eq(HttpMethod.GET),
                 any(HttpEntity.class),
-                ArgumentMatchers.<ParameterizedTypeReference<List<GameDTO>>>any())).thenReturn(responseEntity); 
+                ArgumentMatchers.<ParameterizedTypeReference<List<GameDTO>>>any())).thenReturn(responseEntity);
 
         List<LobbyDTO> result = lobbyService.getAllLobbies();
 
@@ -109,57 +109,57 @@ class TestLobbyService {
     }
 
     @Test
-void testCreateLobby_Exception() {
-    LobbyDTO lobbyDTO = new LobbyDTO();
+    void testCreateLobby_Exception() {
+        LobbyDTO lobbyDTO = new LobbyDTO();
 
-    when(restTemplate.exchange(anyString(), eq(HttpMethod.POST), any(HttpEntity.class), eq(GameDTO.class)))
-            .thenThrow(new RuntimeException("Error simulado en createLobby"));
+        when(restTemplate.exchange(anyString(), eq(HttpMethod.POST), any(HttpEntity.class), eq(GameDTO.class)))
+                .thenThrow(new RuntimeException("Error simulado en createLobby"));
 
-    Exception exception = assertThrows(RuntimeException.class, () -> {
-        lobbyService.createLobby(lobbyDTO);
-    });
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            lobbyService.createLobby(lobbyDTO);
+        });
 
-    assertEquals("Error al crear el lobby", exception.getMessage());
-}
+        assertEquals("Error al crear el lobby", exception.getMessage());
+    }
 
-@Test
-void testGetLobby_Exception() {
-    String lobbyId = "test-lobby";
+    @Test
+    void testGetLobby_Exception() {
+        String lobbyId = "test-lobby";
 
-    when(restTemplate.exchange(anyString(), eq(HttpMethod.GET), any(HttpEntity.class), eq(GameDTO.class)))
-            .thenThrow(new RuntimeException("Error simulado en getLobby"));
+        when(restTemplate.exchange(anyString(), eq(HttpMethod.GET), any(HttpEntity.class), eq(GameDTO.class)))
+                .thenThrow(new RuntimeException("Error simulado en getLobby"));
 
-    Exception exception = assertThrows(RuntimeException.class, () -> {
-        lobbyService.getLobby(lobbyId);
-    });
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            lobbyService.getLobby(lobbyId);
+        });
 
-    assertEquals("Error al obtener el juego", exception.getMessage());
-}
+        assertEquals("Error al obtener el juego", exception.getMessage());
+    }
 
-@Test
-void testGetAllLobbies_Exception() {
-    when(restTemplate.exchange(anyString(), eq(HttpMethod.GET), any(HttpEntity.class), 
-            ArgumentMatchers.<ParameterizedTypeReference<List<GameDTO>>>any()))
-            .thenThrow(new RuntimeException("Error simulado en getAllLobbies"));
+    @Test
+    void testGetAllLobbies_Exception() {
+        when(restTemplate.exchange(anyString(), eq(HttpMethod.GET), any(HttpEntity.class),
+                ArgumentMatchers.<ParameterizedTypeReference<List<GameDTO>>>any()))
+                .thenThrow(new RuntimeException("Error simulado en getAllLobbies"));
 
-    Exception exception = assertThrows(RuntimeException.class, () -> {
-        lobbyService.getAllLobbies();
-    });
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            lobbyService.getAllLobbies();
+        });
 
-    assertEquals("Error al obtener todos los juegos", exception.getMessage());
-}
+        assertEquals("Error al obtener todos los juegos", exception.getMessage());
+    }
 
-@Test
-void testRemoveGame_Exception() {
-    String gameId = "test-game";
+    @Test
+    void testRemoveGame_Exception() {
+        String gameId = "test-game";
 
-    when(restTemplate.exchange(anyString(), eq(HttpMethod.DELETE), any(HttpEntity.class), eq(Void.class)))
-            .thenThrow(new RuntimeException("Error simulado en removeGame"));
+        when(restTemplate.exchange(anyString(), eq(HttpMethod.DELETE), any(HttpEntity.class), eq(Void.class)))
+                .thenThrow(new RuntimeException("Error simulado en removeGame"));
 
-    Exception exception = assertThrows(RuntimeException.class, () -> {
-        lobbyService.removeGame(gameId);
-    });
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            lobbyService.removeGame(gameId);
+        });
 
-    assertEquals("Error al eliminar el juego", exception.getMessage());
-}
+        assertEquals("Error al eliminar el juego", exception.getMessage());
+    }
 }

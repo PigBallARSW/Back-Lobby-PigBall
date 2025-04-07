@@ -25,6 +25,7 @@ public class GameDTO {
     private int borderX;
     private int borderY;
     private List<PlayerDTO> players;
+
     public GameDTO(LobbyDTO lobbyDTO) {
         this.id = lobbyDTO.getId();
         this.gameName = lobbyDTO.getLobbyName();
@@ -32,13 +33,16 @@ public class GameDTO {
         this.maxPlayers = lobbyDTO.getMaxPlayers();
         this.privateGame = lobbyDTO.isPrivateGame();
     }
+
     public int getMaxPlayers() {
-        if(maxPlayers==null) return 4;
+        if (maxPlayers == null)
+            return 4;
         return maxPlayers;
     }
 
     public boolean isPrivateGame() {
-        if(privateGame==null) return false;
+        if (privateGame == null)
+            return false;
         return privateGame;
     }
 

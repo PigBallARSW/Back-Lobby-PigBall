@@ -13,10 +13,10 @@ import co.edu.eci.pigball.lobby.model.LobbyStatus;
 import co.edu.eci.pigball.lobby.model.dto.GameDTO;
 import co.edu.eci.pigball.lobby.model.dto.LobbyDTO;
 
-public class TestGameDTO {
+class TestGameDTO {
 
     @Test
-    public void testGameDTOConstructorWithLobbyDTO() { // Hacerlo 'public' por compatibilidad
+    void testGameDTOConstructorWithLobbyDTO() { // Hacerlo 'public' por compatibilidad
         LobbyDTO lobbyDTO = new LobbyDTO(
                 "1",
                 "Test Lobby",
@@ -38,7 +38,7 @@ public class TestGameDTO {
     }
 
     @Test
-    public void testDefaultMaxPlayers() {
+    void testDefaultMaxPlayers() {
         LobbyDTO lobbyDTO = new LobbyDTO(
                 "2",
                 "Lobby Without Max",
@@ -55,7 +55,7 @@ public class TestGameDTO {
     }
 
     @Test
-    public void testDefaultPrivateGame() {
+    void testDefaultPrivateGame() {
         LobbyDTO lobbyDTO = new LobbyDTO(
                 "3",
                 "Lobby Without Private",
@@ -72,7 +72,7 @@ public class TestGameDTO {
     }
 
     @Test
-    public void testStaticToDTO() {
+    void testStaticToDTO() {
         LobbyDTO lobbyDTO = new LobbyDTO(
                 "4",
                 "Static Lobby",
@@ -95,7 +95,7 @@ public class TestGameDTO {
     }
 
     @Test
-    public void testStaticToDTOCollection() {
+    void testStaticToDTOCollection() {
         LobbyDTO lobbyDTO1 = new LobbyDTO(
                 "5",
                 "Lobby One",

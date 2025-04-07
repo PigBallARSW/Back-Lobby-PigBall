@@ -42,7 +42,6 @@ class TestLobbyController {
 
     private LobbyDTO sampleLobbyDTO;
 
-
     @BeforeEach
     void setUp() {
         // Registramos el módulo para soportar Java 8 Date/Time (Instant)
@@ -50,8 +49,7 @@ class TestLobbyController {
         mockMvc = MockMvcBuilders.standaloneSetup(lobbyController).build();
         sampleLobbyDTO = new LobbyDTO(
                 "1", "TestLobby", "Creator1", 8, LobbyStatus.WAITING_FOR_PLAYERS,
-                false, Instant.now(), 100, 100, Collections.emptyList()
-        );
+                false, Instant.now(), 100, 100, Collections.emptyList());
     }
 
     @Test
@@ -59,8 +57,8 @@ class TestLobbyController {
         when(lobbyService.createLobby(any(LobbyDTO.class))).thenReturn(sampleLobbyDTO);
 
         mockMvc.perform(post("/lobby")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(sampleLobbyDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(sampleLobbyDTO)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value("1"))
                 .andExpect(jsonPath("$.lobbyName").value("TestLobby"))
@@ -78,8 +76,8 @@ class TestLobbyController {
         when(lobbyService.createLobby(any(LobbyDTO.class))).thenThrow(new RuntimeException("Error al crear lobby"));
 
         mockMvc.perform(post("/lobby")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(sampleLobbyDTO)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(sampleLobbyDTO)))
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string("Error al crear lobby"));
     }
@@ -114,9 +112,10 @@ class TestLobbyController {
     void getAllLobbies_ShouldReturnListOfLobbies() throws Exception {
         // Usamos dos estados válidos: WAITING_FOR_PLAYERS y FINISHED, por ejemplo.
         List<LobbyDTO> lobbies = List.of(
-                new LobbyDTO("1", "Lobby1", "CreatorA", 4, LobbyStatus.WAITING_FOR_PLAYERS, false, Instant.now(), 100, 100, Collections.emptyList()),
-                new LobbyDTO("2", "Lobby2", "CreatorB", 6, LobbyStatus.FINISHED, true, Instant.now(), 200, 200, Collections.emptyList())
-        );
+                new LobbyDTO("1", "Lobby1", "CreatorA", 4, LobbyStatus.WAITING_FOR_PLAYERS, false, Instant.now(), 100,
+                        100, Collections.emptyList()),
+                new LobbyDTO("2", "Lobby2", "CreatorB", 6, LobbyStatus.FINISHED, true, Instant.now(), 200, 200,
+                        Collections.emptyList()));
 
         when(lobbyService.getAllLobbies()).thenReturn(lobbies);
 

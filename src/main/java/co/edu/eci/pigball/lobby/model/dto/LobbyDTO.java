@@ -38,9 +38,6 @@ public class LobbyDTO {
         this.creationTime = lobby.getCreationTime();
         this.borderX = lobby.getBorderX();
         this.borderY = lobby.getBorderY();
-        // Collection<PlayerDTO> playersDTO =
-        // PlayerDTO.toDTO(lobby.getPlayers().values());
-        // this.players = (List<PlayerDTO>) playersDTO;
     }
 
     public LobbyDTO(GameDTO gameDTO) {
