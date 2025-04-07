@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setterc
+@Setter
 public class Team {
     private AtomicInteger score;
     private AtomicInteger players;
