@@ -3,7 +3,9 @@ package co.edu.eci.pigball.lobby.service;
 import co.edu.eci.pigball.lobby.model.DTO.GameDTO;
 import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
 import co.edu.eci.pigball.lobby.model.Lobby;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -16,14 +18,14 @@ import java.util.List;
 
 @Service
 public class LobbyService {
-    @Autowired
-    private LobbyRepository lobbyRepository;
+
+    private static final Logger logger = LoggerFactory.getLogger(LobbyService.class.getName());
 
     @Value("${GAME_SERVICE_URL}")
     private String gameServiceUrl;
     private final RestTemplate restTemplate;
+    private final LobbyRepository lobbyRepository;
 
-    @Autowired
     public LobbyService(RestTemplate restTemplate, LobbyRepository lobbyRepository) {
         this.lobbyRepository = lobbyRepository;
         this.restTemplate = restTemplate;
@@ -42,7 +44,7 @@ public class LobbyService {
             lobbyRepository.save(lobby);
             return new LobbyDTO(lobby);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.warn("Error al crear el lobby: " + e.getMessage());
             throw new RuntimeException("Error al crear el lobby", e);
         }
     }
@@ -55,7 +57,7 @@ public class LobbyService {
             Lobby lobby = new Lobby(responseGameDTO);
             return new LobbyDTO(lobby);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.warn("Error al obtener el lobby: " + e.getMessage());
             throw new RuntimeException("Error al obtener el juego", e);
         }
     }
@@ -78,7 +80,7 @@ public class LobbyService {
             }
             return lobbies;
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.warn("Error al obtener todos los lobbies: " + e.getMessage());
             throw new RuntimeException("Error al obtener todos los juegos", e);
         }
     }
@@ -90,7 +92,7 @@ public class LobbyService {
         try {
             restTemplate.exchange(url, HttpMethod.DELETE, HttpEntity.EMPTY, Void.class);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.warn("Error al eliminar el juego: " + e.getMessage());
             throw new RuntimeException("Error al eliminar el juego", e);
         }
     }

@@ -2,7 +2,6 @@ package co.edu.eci.pigball.lobby.controller;
 
 import co.edu.eci.pigball.lobby.model.DTO.LobbyDTO;
 import co.edu.eci.pigball.lobby.service.LobbyService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +12,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/lobby")
 public class LobbyController {
-    @Autowired
-    private LobbyService lobbyService;
+    
+    private final LobbyService lobbyService;
+
+    public LobbyController(LobbyService lobbyService) {
+        this.lobbyService = lobbyService;
+    }
+
     @PostMapping
     public ResponseEntity<?> createLobby(@RequestBody LobbyDTO lobbyDTO) {
         try {
