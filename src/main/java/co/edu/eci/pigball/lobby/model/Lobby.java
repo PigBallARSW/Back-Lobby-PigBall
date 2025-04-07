@@ -6,13 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import co.edu.eci.pigball.lobby.java.Pair;
 import java.time.Instant;
-import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -34,9 +31,6 @@ public class Lobby {
     private int borderY;
     private Pair<Team, Team> teams;
     private ConcurrentHashMap<String, PlayerDTO> players;
-
-    private static final int velocity = 5;
-    private static final double FRAME_RATE = 60;
 
     public Lobby(String lobbyId, String lobbyName, String creatorName, int maxPlayers, boolean privateGame) {
         this.lobbyId = UUID.randomUUID().toString(); // Genera un UUID único
@@ -62,7 +56,7 @@ public class Lobby {
         this.borderX = gameDTO.getBorderX();
         this.borderY = gameDTO.getBorderY();
         //this.teams = gameDTO.getTeams();
-        Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
+        //Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
         //this.players = (List<PlayerDTO>) playersDTO;
     }
 }

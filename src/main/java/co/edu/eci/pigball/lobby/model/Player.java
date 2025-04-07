@@ -15,7 +15,6 @@ public class Player {
     private AtomicReference<Double> y;
     private Lobby lobby;
 
-    private static final int RADIUS = 20;
     public double getX() {
         return x.get();
     }
