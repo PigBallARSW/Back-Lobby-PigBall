@@ -104,7 +104,7 @@ class TestLobbyService {
         when(restTemplate.exchange(eq(url), eq(HttpMethod.DELETE), eq(HttpEntity.EMPTY), eq(Void.class)))
                 .thenReturn(ResponseEntity.noContent().build()); // Simula una respuesta exitosa
 
-        assertDoesNotThrow(() -> lobbyService.removeGame(gameId));
+        assertDoesNotThrow(() -> lobbyService.removeLobby(gameId));
 
     }
 
@@ -157,7 +157,7 @@ class TestLobbyService {
                 .thenThrow(new RuntimeException("Error simulado en removeGame"));
 
         Exception exception = assertThrows(RuntimeException.class, () -> {
-            lobbyService.removeGame(gameId);
+            lobbyService.removeLobby(gameId);
         });
 
         assertEquals("Error al eliminar el juego", exception.getMessage());
