@@ -143,7 +143,7 @@ class TestLobbyController {
 
     @Test
     void removeGame_ShouldReturnSuccessMessage() throws Exception {
-        doNothing().when(lobbyService).removeGame(anyString());
+        doNothing().when(lobbyService).removeLobby(anyString());
 
         mockMvc.perform(delete("/lobby/1"))
                 .andExpect(status().isOk())
@@ -152,7 +152,7 @@ class TestLobbyController {
 
     @Test
     void removeGame_ShouldReturnBadRequestOnError() throws Exception {
-        doThrow(new RuntimeException("Error al eliminar el juego")).when(lobbyService).removeGame(anyString());
+        doThrow(new RuntimeException("Error al eliminar el juego")).when(lobbyService).removeLobby(anyString());
 
         mockMvc.perform(delete("/lobby/1"))
                 .andExpect(status().isBadRequest())
