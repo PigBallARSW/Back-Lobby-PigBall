@@ -89,8 +89,8 @@ public class LobbyService {
         }
     }
 
-    public void removeGame(String gameId) {
-        String url = gameServiceUrl + "/removeGame/" + gameId;
+    public void removeLobby(String lobbyId) {
+        String url = gameServiceUrl + "/removeGame/" + lobbyId;
 
         try {
             restTemplate.exchange(url, HttpMethod.DELETE, HttpEntity.EMPTY, Void.class);

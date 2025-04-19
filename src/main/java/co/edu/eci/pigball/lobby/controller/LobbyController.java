@@ -46,11 +46,11 @@ public class LobbyController {
         }
     }
 
-    @DeleteMapping("/{gameId}")
-    public ResponseEntity<Object> removeGame(@PathVariable String gameId) {
+    @DeleteMapping("/{lobbyId}")
+    public ResponseEntity<Object> removeGame(@PathVariable String lobbyId) {
         try {
-            lobbyService.removeGame(gameId);
-            return new ResponseEntity<>("Juego eliminado correctamente", HttpStatus.OK);
+            lobbyService.removeLobby(lobbyId);
+            return new ResponseEntity<>("Lobby removido exitosamente", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
