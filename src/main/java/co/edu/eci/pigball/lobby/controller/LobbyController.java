@@ -50,7 +50,7 @@ public class LobbyController {
     public ResponseEntity<Object> removeGame(@PathVariable String lobbyId) {
         try {
             lobbyService.removeLobby(lobbyId);
-            return new ResponseEntity<>("Lobby removido exitosamente", HttpStatus.OK);
+            return new ResponseEntity<>("Juego eliminado correctamente>", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
