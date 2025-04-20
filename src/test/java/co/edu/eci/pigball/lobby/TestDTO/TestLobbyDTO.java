@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.Instant;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -104,7 +105,7 @@ class TestLobbyDTO {
                 new PlayerDTO("Player Two", "session2", 2, 300, 400, gameId));
 
         GameDTO gameDTO = new GameDTO(gameId, gameName, creatorName, maxPlayers, privateGame, status, creationTime,
-                borderX, borderY, players);
+                borderX, borderY, players, Collections.emptyList());
 
         // Construir el LobbyDTO usando el constructor desde GameDTO
         LobbyDTO lobbyDTO = new LobbyDTO(gameDTO);
