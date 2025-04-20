@@ -89,11 +89,15 @@ public class LobbyService {
         }
     }
 
-    public void removeLobby(String lobbyId) {
+    public LobbyDTO removeLobby(String lobbyId) {
         String url = gameServiceUrl + "/removeGame/" + lobbyId;
 
         try {
-            restTemplate.exchange(url, HttpMethod.DELETE, HttpEntity.EMPTY, Void.class);
+            ResponseEntity<GameDTO> response = restTemplate.exchange(url, HttpMethod.DELETE, HttpEntity.EMPTY,
+                    GameDTO.class);
+            GameDTO responseGameDTO = response.getBody();
+            Lobby lobby = new Lobby(responseGameDTO);
+            return new LobbyDTO(lobby);
         } catch (Exception e) {
             logger.warn("Error al eliminar el juego: " + e.getMessage());
             throw new RuntimeException("Error al eliminar el juego", e);
