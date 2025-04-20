@@ -1,5 +1,7 @@
 package co.edu.eci.pigball.lobby.model.dto;
 
+import co.edu.eci.pigball.lobby.java.Pair;
+import co.edu.eci.pigball.lobby.model.Event;
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,13 +27,14 @@ public class GameDTO {
     private int borderX;
     private int borderY;
     private List<PlayerDTO> players;
-
+    private List<Pair<String, Event>> events;
     public GameDTO(LobbyDTO lobbyDTO) {
         this.id = lobbyDTO.getId();
         this.gameName = lobbyDTO.getLobbyName();
         this.creatorName = lobbyDTO.getCreatorName();
         this.maxPlayers = lobbyDTO.getMaxPlayers();
         this.privateGame = lobbyDTO.isPrivateGame();
+        this.events = lobbyDTO.getEvents();
     }
 
     public int getMaxPlayers() {
