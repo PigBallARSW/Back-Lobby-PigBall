@@ -14,7 +14,7 @@ public class Player {
     private AtomicReference<Double> x;
     private AtomicReference<Double> y;
     private Lobby lobby;
-
+    private String id;
     public double getX() {
         return x.get();
     }

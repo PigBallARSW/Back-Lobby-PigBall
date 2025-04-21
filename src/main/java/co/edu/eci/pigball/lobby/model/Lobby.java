@@ -11,6 +11,7 @@ import co.edu.eci.pigball.lobby.model.dto.GameDTO;
 import co.edu.eci.pigball.lobby.model.dto.PlayerDTO;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -32,7 +33,7 @@ public class Lobby {
     private int borderX;
     private int borderY;
     private Pair<Team, Team> teams;
-    private ConcurrentHashMap<String, PlayerDTO> players;
+    private List<PlayerDTO> players;
     private List<Pair<String, Event>> events;
     public Lobby(String lobbyId, String lobbyName, String creatorName, int maxPlayers, boolean privateGame) {
         this.lobbyId = UUID.randomUUID().toString(); // Genera un UUID único
@@ -45,7 +46,7 @@ public class Lobby {
         this.borderX = 1200;
         this.borderY = 900;
         this.teams = new Pair<>(new Team(), new Team());
-        this.players = new ConcurrentHashMap<>();
+        this.players = new ArrayList<>();
     }
 
     public Lobby(GameDTO gameDTO) {
@@ -61,6 +62,6 @@ public class Lobby {
         this.events = gameDTO.getEvents();
         // this.teams = gameDTO.getTeams();
         // Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
-        // this.players = (List<PlayerDTO>) playersDTO;
+        this.players = gameDTO.getPlayers();
     }
 }
