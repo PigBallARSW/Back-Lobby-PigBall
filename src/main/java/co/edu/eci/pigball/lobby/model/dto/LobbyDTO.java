@@ -41,6 +41,7 @@ public class LobbyDTO {
         this.borderX = lobby.getBorderX();
         this.borderY = lobby.getBorderY();
         this.events = lobby.getEvents();
+        this.players = lobby.getPlayers();
     }
 
     public LobbyDTO(GameDTO gameDTO) {

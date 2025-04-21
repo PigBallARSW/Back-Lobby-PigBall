@@ -20,6 +20,7 @@ public class PlayerDTO {
     private double x;
     private double y;
     private String gameId;
+    private String id;
 
     public static PlayerDTO toDTO(Player player) {
         PlayerDTO playerDTO = new PlayerDTO();
@@ -29,6 +30,7 @@ public class PlayerDTO {
         playerDTO.setX(player.getX());
         playerDTO.setY(player.getY());
         playerDTO.setGameId(player.getLobby().getLobbyId());
+        playerDTO.setId(player.getId());
         return playerDTO;
     }
 
