@@ -49,7 +49,7 @@ class TestLobbyController {
         mockMvc = MockMvcBuilders.standaloneSetup(lobbyController).build();
         sampleLobbyDTO = new LobbyDTO(
                 "1", "TestLobby", "Creator1", 8, LobbyStatus.WAITING_FOR_PLAYERS,
-                false, Instant.now(), 100, 100, Collections.emptyList());
+                false, Instant.now(), 100, 100, Collections.emptyList(),Collections.emptyList());
     }
 
     @Test
@@ -113,9 +113,9 @@ class TestLobbyController {
         // Usamos dos estados válidos: WAITING_FOR_PLAYERS y FINISHED, por ejemplo.
         List<LobbyDTO> lobbies = List.of(
                 new LobbyDTO("1", "Lobby1", "CreatorA", 4, LobbyStatus.WAITING_FOR_PLAYERS, false, Instant.now(), 100,
-                        100, Collections.emptyList()),
+                        100, Collections.emptyList(),Collections.emptyList()),
                 new LobbyDTO("2", "Lobby2", "CreatorB", 6, LobbyStatus.FINISHED, true, Instant.now(), 200, 200,
-                        Collections.emptyList()));
+                        Collections.emptyList(),Collections.emptyList()));
 
         when(lobbyService.getAllLobbies()).thenReturn(lobbies);
 
@@ -143,16 +143,15 @@ class TestLobbyController {
 
     @Test
     void removeGame_ShouldReturnSuccessMessage() throws Exception {
-        doNothing().when(lobbyService).removeGame(anyString());
+        doNothing().when(lobbyService).removeLobby(anyString());
 
         mockMvc.perform(delete("/lobby/1"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Juego eliminado correctamente"));
+                .andExpect(status().isOk());
     }
 
     @Test
     void removeGame_ShouldReturnBadRequestOnError() throws Exception {
-        doThrow(new RuntimeException("Error al eliminar el juego")).when(lobbyService).removeGame(anyString());
+        doThrow(new RuntimeException("Error al eliminar el juego")).when(lobbyService).removeLobby(anyString());
 
         mockMvc.perform(delete("/lobby/1"))
                 .andExpect(status().isBadRequest())

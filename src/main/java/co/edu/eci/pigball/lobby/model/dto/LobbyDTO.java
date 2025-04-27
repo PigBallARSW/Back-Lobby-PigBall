@@ -1,5 +1,7 @@
 package co.edu.eci.pigball.lobby.model.dto;
 
+import co.edu.eci.pigball.lobby.java.Pair;
+import co.edu.eci.pigball.lobby.model.Event;
 import co.edu.eci.pigball.lobby.model.Lobby;
 import co.edu.eci.pigball.lobby.model.LobbyStatus;
 import lombok.AllArgsConstructor;
@@ -27,7 +29,7 @@ public class LobbyDTO {
     private int borderX;
     private int borderY;
     private List<PlayerDTO> players;
-
+    private List<Pair<String, Event>> events;
     public LobbyDTO(Lobby lobby) {
         this.id = lobby.getLobbyId();
         this.lobbyName = lobby.getLobbyName();
@@ -38,6 +40,8 @@ public class LobbyDTO {
         this.creationTime = lobby.getCreationTime();
         this.borderX = lobby.getBorderX();
         this.borderY = lobby.getBorderY();
+        this.events = lobby.getEvents();
+        this.players = lobby.getPlayers();
     }
 
     public LobbyDTO(GameDTO gameDTO) {
@@ -52,6 +56,7 @@ public class LobbyDTO {
         this.borderY = gameDTO.getBorderY();
         Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
         this.players = (List<PlayerDTO>) playersDTO;
+        this.events = gameDTO.getEvents();
     }
 
     public int getMaxPlayers() {

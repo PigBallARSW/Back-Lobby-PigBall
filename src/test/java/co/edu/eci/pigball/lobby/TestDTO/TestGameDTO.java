@@ -27,6 +27,7 @@ class TestGameDTO {
                 Instant.now(),
                 100,
                 100,
+                new ArrayList<>(),
                 new ArrayList<>());
         GameDTO gameDTO = new GameDTO(lobbyDTO);
 
@@ -49,6 +50,7 @@ class TestGameDTO {
                 Instant.now(),
                 100,
                 100,
+                new ArrayList<>(),
                 new ArrayList<>());
         GameDTO gameDTO = new GameDTO(lobbyDTO);
         assertEquals(4, gameDTO.getMaxPlayers());
@@ -66,6 +68,7 @@ class TestGameDTO {
                 Instant.now(),
                 100,
                 100,
+                new ArrayList<>(),
                 new ArrayList<>());
         GameDTO gameDTO = new GameDTO(lobbyDTO);
         assertFalse(gameDTO.isPrivateGame());
@@ -83,6 +86,7 @@ class TestGameDTO {
                 Instant.now(),
                 100,
                 100,
+                new ArrayList<>(),
                 new ArrayList<>());
         GameDTO gameDTO = GameDTO.toDTO(lobbyDTO);
 
@@ -106,6 +110,7 @@ class TestGameDTO {
                 Instant.now(),
                 100,
                 100,
+                new ArrayList<>(),
                 new ArrayList<>());
         LobbyDTO lobbyDTO2 = new LobbyDTO(
                 "6",
@@ -117,6 +122,7 @@ class TestGameDTO {
                 Instant.now(),
                 100,
                 100,
+                new ArrayList<>(),
                 new ArrayList<>());
         List<LobbyDTO> lobbies = List.of(lobbyDTO1, lobbyDTO2);
 
