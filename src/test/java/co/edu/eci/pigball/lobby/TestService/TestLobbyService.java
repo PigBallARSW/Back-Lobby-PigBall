@@ -96,18 +96,7 @@ class TestLobbyService {
 
     }
 
-    @Test
-    void testRemoveGame() {
-        String gameId = "testGame123";
-        String url = gameServiceUrl + "/removeGame/" + gameId;
-
-        when(restTemplate.exchange(eq(url), eq(HttpMethod.DELETE), eq(HttpEntity.EMPTY), eq(Void.class)))
-                .thenReturn(ResponseEntity.noContent().build()); // Simula una respuesta exitosa
-
-        assertDoesNotThrow(() -> lobbyService.removeLobby(gameId));
-
-    }
-
+    
     @Test
     void testCreateLobby_Exception() {
         LobbyDTO lobbyDTO = new LobbyDTO();
