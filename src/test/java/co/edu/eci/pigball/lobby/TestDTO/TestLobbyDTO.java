@@ -19,7 +19,7 @@ class TestLobbyDTO {
 
     @Test
     void testLobbyDTOConstructorWithLobby() {
-        Lobby lobby = new Lobby("1", "Test Lobby", "Alice", 6, true);
+        Lobby lobby = new Lobby("1", "Test Lobby", "Alice", 6, true, "classic");
         LobbyDTO lobbyDTO = new LobbyDTO(lobby);
 
         assertEquals(lobby.getLobbyId(), lobbyDTO.getId());
@@ -41,14 +41,14 @@ class TestLobbyDTO {
 
     @Test
     void testDefaultPrivateLobby() {
-        Lobby lobby = new Lobby("3", "Lobby Without Private", "Carol", 8, false);
+        Lobby lobby = new Lobby("3", "Lobby Without Private", "Carol", 8, false, "classic");
         LobbyDTO lobbyDTO = new LobbyDTO(lobby);
         assertFalse(lobbyDTO.isPrivateGame());
     }
 
     @Test
     void testStaticToDTO() {
-        Lobby lobby = new Lobby("4", "Static Lobby", "Dave", 10, true);
+        Lobby lobby = new Lobby("4", "Static Lobby", "Dave", 10, true, "classic");
         LobbyDTO lobbyDTO = LobbyDTO.toDTO(lobby);
 
         assertNotNull(lobbyDTO);
@@ -61,8 +61,8 @@ class TestLobbyDTO {
 
     @Test
     void testStaticToDTOCollection() {
-        Lobby lobby1 = new Lobby("1", "Lobby One", "Eve", 7, true);
-        Lobby lobby2 = new Lobby("1", "Lobby Two", "Frank", 0, false);
+        Lobby lobby1 = new Lobby("1", "Lobby One", "Eve", 7, true, "classic");
+        Lobby lobby2 = new Lobby("1", "Lobby Two", "Frank", 0, false, "classic");
         List<Lobby> lobbies = List.of(lobby1, lobby2);
 
         Collection<LobbyDTO> lobbyDTOs = LobbyDTO.toDTO(lobbies);
@@ -105,7 +105,7 @@ class TestLobbyDTO {
                 new PlayerDTO("Player Two", "session2", 2, 300, 400, gameId, "player-2"));
 
         GameDTO gameDTO = new GameDTO(gameId, gameName, creatorName, maxPlayers, privateGame, status, creationTime,
-                borderX, borderY, players, Collections.emptyList());
+                borderX, borderY, players, Collections.emptyList(), "classic");
 
         // Construir el LobbyDTO usando el constructor desde GameDTO
         LobbyDTO lobbyDTO = new LobbyDTO(gameDTO);

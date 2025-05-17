@@ -30,6 +30,8 @@ public class LobbyDTO {
     private int borderY;
     private List<PlayerDTO> players;
     private List<Pair<String, Event>> events;
+    private String style;
+
     public LobbyDTO(Lobby lobby) {
         this.id = lobby.getLobbyId();
         this.lobbyName = lobby.getLobbyName();

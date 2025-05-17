@@ -14,7 +14,6 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Document(collection = "lobby")
 @Getter
@@ -35,7 +34,9 @@ public class Lobby {
     private Pair<Team, Team> teams;
     private List<PlayerDTO> players;
     private List<Pair<String, Event>> events;
-    public Lobby(String lobbyId, String lobbyName, String creatorName, int maxPlayers, boolean privateGame) {
+    private String style;
+
+    public Lobby(String lobbyId, String lobbyName, String creatorName, int maxPlayers, boolean privateGame, String style) {
         this.lobbyId = UUID.randomUUID().toString(); // Genera un UUID único
         this.lobbyName = lobbyName;
         this.creatorName = creatorName;
@@ -63,5 +64,6 @@ public class Lobby {
         // this.teams = gameDTO.getTeams();
         // Collection<PlayerDTO> playersDTO = gameDTO.getPlayers();
         this.players = gameDTO.getPlayers();
+        this.style = gameDTO.getStyle();
     }
 }

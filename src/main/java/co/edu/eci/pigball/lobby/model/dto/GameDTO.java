@@ -28,6 +28,7 @@ public class GameDTO {
     private int borderY;
     private List<PlayerDTO> players;
     private List<Pair<String, Event>> events;
+    private String style;
     public GameDTO(LobbyDTO lobbyDTO) {
         this.id = lobbyDTO.getId();
         this.gameName = lobbyDTO.getLobbyName();
@@ -35,6 +36,7 @@ public class GameDTO {
         this.maxPlayers = lobbyDTO.getMaxPlayers();
         this.privateGame = lobbyDTO.isPrivateGame();
         this.events = lobbyDTO.getEvents();
+        this.style = lobbyDTO.getStyle();
     }
 
     public int getMaxPlayers() {

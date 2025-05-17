@@ -19,7 +19,7 @@ class TestLobby {
 
     @BeforeEach
     void setUp() {
-        lobby = new Lobby("1234", "Test Lobby", "Creator", 4, false);
+        lobby = new Lobby("1234", "Test Lobby", "Creator", 4, false, "classic");
     }
 
     @Test
